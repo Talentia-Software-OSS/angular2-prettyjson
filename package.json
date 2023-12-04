@@ -1,6 +1,6 @@
 {
   "name": "angular2-prettyjson",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "scripts": {
     "build": "ng build @talentia/angular2-prettyjson --configuration production"
   },
