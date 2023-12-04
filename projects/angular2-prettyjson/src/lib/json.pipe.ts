@@ -2,7 +2,7 @@ import {Pipe, PipeTransform} from "@angular/core";
 import {serializer} from "./safe.util";
 
 @Pipe({
-  name: "json",
+  name: "safejson",
   pure: false
 })
 export class SafeJsonPipe implements PipeTransform {
