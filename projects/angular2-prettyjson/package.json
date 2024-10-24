@@ -1,6 +1,6 @@
 {
   "name": "@talentia/angular2-prettyjson",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "peerDependencies": {
     "@angular/common": "^16.0.0",
     "@angular/core": "^16.0.0"
