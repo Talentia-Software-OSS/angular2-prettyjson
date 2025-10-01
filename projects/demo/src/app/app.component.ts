@@ -1,8 +1,10 @@
-import {Component, Input} from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
   standalone: false,
-  selector: 'prettyjson',
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
   styles: [
     `pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
     :host ::ng-deep span {white-space: normal;}
@@ -11,11 +13,9 @@ import {Component, Input} from "@angular/core";
     :host ::ng-deep .boolean { color: blue; }
     :host ::ng-deep .null { color: magenta; }
     :host ::ng-deep .key { color: red; }`
-  ],
-  template: `
-    <pre [innerHtml]="obj | prettyjson"></pre>
-  `,
+  ]
 })
-export class PrettyJsonComponent {
-  @Input() public obj: any;
+export class AppComponent {
+  title = 'Talentia Pretty JSON';
+  jsonData = { foo: 'bar', baz: { a: 1, b: [1, 2, 3], c: { d: true } } };
 }

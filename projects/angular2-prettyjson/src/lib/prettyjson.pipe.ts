@@ -1,8 +1,9 @@
 import {Pipe, PipeTransform} from "@angular/core";
-import {serializer as circularSerializer} from "./safe.util";
+import { serializer as circularSerializer } from './json-utils';
 
 @Pipe({
-  name: "prettyjson",
+  standalone: false,
+  name: 'prettyjson',
   pure: false
 })
 export class PrettyJsonPipe implements PipeTransform {

@@ -1,8 +1,8 @@
 /*
- * Public API Surface of @talentia/angular2-prettyjson
+ * Public API Surface of angular2-prettyjson
  */
 
-export { SafeJsonPipe } from './lib/json.pipe';
-export { PrettyJsonPipe } from './lib/prettyjson.pipe';
-export { PrettyJsonComponent } from './lib/prettyjson.component';
-export { PrettyJsonModule } from './lib/prettyjson.module';
+export * from './lib/prettyjson-safe.pipe';
+export * from './lib/prettyjson.pipe';
+export * from './lib/prettyjson.component';
+export * from './lib/prettyjson.module';
