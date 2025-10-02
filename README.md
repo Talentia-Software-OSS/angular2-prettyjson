@@ -1,6 +1,7 @@
 # @talentia/angular2-prettyjson
 
-A module for Angular 2 debug output of objects. Contains a pipe similar to [JsonPipe](https://angular.io/docs/ts/latest/api/common/index/JsonPipe-class.html) but adds support for spacing and handling of circular structures.  
+A module for Angular to debug output of objects. 
+Contains a pipe similar to [JsonPipe](https://angular.io/docs/ts/latest/api/common/index/JsonPipe-class.html) but adds support for spacing and handling of circular structures.  
 Also contains a component that outputs any object with syntax highlight.  
 **Warning**: just as the `JsonPipe`, this is an impure pipe and should be used only for debugging purposes.
 
