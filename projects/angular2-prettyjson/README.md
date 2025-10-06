@@ -42,8 +42,8 @@ The `SafeJsonPipe` aims to override the `JsonPipe` and so uses the same name "js
   ....
   template: `
     <pre>
-    {{ circularObj | safeJson }}
-    {{ circularObj | safeJson:4 }}
+    {{ circularObj | safejson }}
+    {{ circularObj | safejson:4 }}
     </pre>
   ` // make sure to use a surrounding element with white-space: pre; for best results
   })

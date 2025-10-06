@@ -3,7 +3,7 @@ import { serializer } from './json-utils';
 
 @Pipe({
   standalone: false,
-  name: 'safeJson',
+  name: 'safejson',
   pure: false,
 })
 export class SafeJsonPipe implements PipeTransform {
