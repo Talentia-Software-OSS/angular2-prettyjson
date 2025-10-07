@@ -1,15 +1,18 @@
 import {Pipe, PipeTransform} from "@angular/core";
-import {serializer as circularSerializer} from "./safe.util";
+import { serializer as circularSerializer } from './json-utils';
 
 @Pipe({
-  name: "prettyjson",
+  standalone: false,
+  name: 'prettyjson',
   pure: false
 })
 export class PrettyJsonPipe implements PipeTransform {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public transform(obj: any, spaces = 2): string {
     return this._syntaxHighlight(obj, circularSerializer(), spaces);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private _syntaxHighlight(json: any, serializer: any, spacing: number): string {
     if (json === undefined) {
         return '<span class="undefined"></span>';
@@ -20,6 +23,7 @@ export class PrettyJsonPipe implements PipeTransform {
       json = JSON.stringify(json, serializer, spacing);
     }
     json = json.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    // eslint-disable-next-line no-useless-escape, @typescript-eslint/no-explicit-any
     return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, (match: any) => {
         let cls = "number";
         if (/^"/.test(match)) {

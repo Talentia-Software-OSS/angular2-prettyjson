@@ -1,48 +1,49 @@
-# Angular 2 Pretty Json
+# @talentia/angular2-prettyjson
 
-A module for Angular 2 debug output of objects. Contains a pipe similar to [JsonPipe](https://angular.io/docs/ts/latest/api/common/index/JsonPipe-class.html) but adds support for spacing and handling of circular structures.  
+An Angular module to pretty print JSON objects.
+Contains a pipe similar to [JsonPipe](https://angular.io/docs/ts/latest/api/common/index/JsonPipe-class.html) but adds support for spacing and handling of circular structures.  
 Also contains a component that outputs any object with syntax highlight.  
 **Warning**: just as the `JsonPipe`, this is an impure pipe and should be used only for debugging purposes.
 
 ## Install
 
-```
-npm install @talentia/angular2-prettyjson
+```bash
+npm i @talentia/angular2-prettyjson
 ```
 
 ## Usage
 
 Import PrettyJsonModule to have access to the component and pipes
 
-```js
-import {PrettyJsonModule} from '@talentia/angular2-prettyjson';
+```ts
+import { PrettyJsonModule } from '@talentia/angular2-prettyjson';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-    ],
-    imports: [
-        PrettyJsonModule,
-    ],
-    providers: [
-    ],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    PrettyJsonModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
 ```
 
 ### Safe Pipe
 
 The `SafeJsonPipe` aims to override the `JsonPipe` and so uses the same name "json". It also accepts an optional argument `spaces=2` for the JSON stringify spacing.
 
-```js
+```ts
 @Component({
   ....
   template: `
     <pre>
-    {{ circularObj | json }}
-    {{ circularObj | json:4 }}
+    {{ circularObj | safejson }}
+    {{ circularObj | safejson:4 }}
     </pre>
   ` // make sure to use a surrounding element with white-space: pre; for best results
   })
@@ -63,8 +64,7 @@ outputs
 
 The `PrettyJsonPipe` stringifies the object and then adds spans around properties, `null`, arrays etc. You can bind it to the innerHtml of other elements.
 
-```js
-
+```ts
 @Component({
   ....
   template: `
@@ -88,15 +88,22 @@ The `PrettyJsonPipe` stringifies the object and then adds spans around propertie
  If you wish to use the `styles` property of the parent component, please prefix each class selector with `:host /deep/`
  e.g.
 
- ```js
-
+ ```ts
 @Component({
   ....
   template: `
     <pre [innerHtml]="circularObj | prettyjson:3"></pre>
   `,
-  styles: [`:host /deep/ .string {color:green} ...`]
-  })
+  styles: [
+    `pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+    :host ::ng-deep span {white-space: normal;}
+    :host ::ng-deep .string { color: green; }
+    :host ::ng-deep .number { color: darkorange; }
+    :host ::ng-deep .boolean { color: blue; }
+    :host ::ng-deep .null { color: magenta; }
+    :host ::ng-deep .key { color: red; }`
+  ]
+})
   ...
 ```
 
@@ -110,8 +117,7 @@ The `PrettyJsonPipe` stringifies the object and then adds spans around propertie
 
  Make sure `PrettyJsonModule` is imported in your own module.
 
-```js
-
+```ts
 @Component({
   ....
   template: `
@@ -124,6 +130,12 @@ The `PrettyJsonPipe` stringifies the object and then adds spans around propertie
        ...
 ```
 
-## Thanks
+## Further help
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.14.
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Reference
 
 This project is forked from [matiboy/angular2-prettyjson](https://github.com/matiboy/angular2-prettyjson).

@@ -1,20 +1,19 @@
 {
   "name": "@talentia/angular2-prettyjson",
-  "version": "3.0.6",
+  "title": "Angular Pretty JSON",
+  "description": "An Angular module to pretty print JSON objects.",
+  "version": "3.0.7",
+  "license": "MIT",
+  "licenseFilename": "LICENSE",
   "peerDependencies": {
-    "@angular/common": "^17.0.0",
-    "@angular/core": "^17.0.0"
+    "@angular/common": "^18.0.0",
+    "@angular/core": "^18.0.0"
   },
   "sideEffects": false,
   "author": {
     "name": "Leonardo Cavone",
     "url": "https://github.com/Talentia-Software-OSS"
   },
-  "contributors": [
-    {
-      "name": "Mathieu Chauvinc"
-    }
-  ],
   "repository": {
     "url": "https://github.com/Talentia-Software-OSS/angular2-prettyjson.git",
     "type": "git"
@@ -23,7 +22,5 @@
     "url": "https://github.com/Talentia-Software-OSS/angular2-prettyjson/issues"
   },
   "homepage": "https://github.com/Talentia-Software-OSS/angular2-prettyjson",
-  "readme": "README.md",
-  "license": "MIT",
-  "licenseFilename": "LICENSE"
+  "readme": "README.md"
 }
