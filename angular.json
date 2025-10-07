@@ -24,14 +24,78 @@
           },
           "defaultConfiguration": "production"
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": "projects/angular2-prettyjson/tsconfig.spec.json",
+            "lintFilePatterns": [
+              "projects/angular2-prettyjson/**/*.ts",
+              "projects/angular2-prettyjson/**/*.html"
+            ],
+            "eslintConfig": "projects/angular2-prettyjson/eslint.config.js"
+          }
+        }
+      }
+    },
+    "demo": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/demo",
+      "sourceRoot": "projects/demo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/demo",
+            "index": "projects/demo/src/index.html",
+            "main": "projects/demo/src/main.ts",
             "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
+              "zone.js"
+            ],
+            "tsConfig": "projects/demo/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/demo/public"
+              }
+            ],
+            "styles": [
+              "projects/demo/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "demo:build:production"
+            },
+            "development": {
+              "buildTarget": "demo:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/demo/**/*.ts",
+              "projects/demo/**/*.html"
+            ],
+            "eslintConfig": "projects/demo/eslint.config.js"
           }
         }
       }

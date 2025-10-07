@@ -1,0 +1,23 @@
+<header class="header sticky">
+  <h1 class="header title">{{ title }}</h1>
+  <div class="header description">
+    A lightweight library for Angular to debug output of JSON objects.<br />
+    Adds support for spacing and handling of circular structures.
+    Also contains a component that outputs any object with syntax highlight. 
+  </div>
+</header>
+<section>
+  <article>
+    <h2>PrettyJson Pipe</h2>
+    <pre [innerHtml]="jsonData | prettyjson"></pre>
+  </article>
+  <article>
+    <h2>PrettyJson Component</h2>
+    <prettyjson [obj]="jsonData"></prettyjson>
+  </article>
+  <article>
+    <h2>SafeJson Pipe</h2>
+    <pre [innerHtml]="jsonData | safejson"></pre>
+  </article>
+</section>
+<router-outlet />
