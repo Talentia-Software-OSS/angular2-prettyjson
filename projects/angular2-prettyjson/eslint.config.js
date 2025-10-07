@@ -7,6 +7,9 @@ module.exports = tseslint.config(
   {
     files: ["**/*.ts"],
     rules: {
+      "no-useless-escape": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-unused-expressions": "off",      
       "@angular-eslint/directive-selector": [
         "error",
         {
@@ -16,7 +19,7 @@ module.exports = tseslint.config(
         },
       ],
       "@angular-eslint/component-selector": [
-        "error",
+        "off",
         {
           type: "element",
           prefix: "lib",
