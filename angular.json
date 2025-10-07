@@ -23,7 +23,17 @@
             }
           },
           "defaultConfiguration": "production"
-        }        
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/angular2-prettyjson/**/*.ts",
+              "projects/angular2-prettyjson/**/*.html"
+            ],
+            "eslintConfig": "projects/angular2-prettyjson/eslint.config.js"
+          }
+        }
       }
     },
     "demo": {
@@ -55,7 +65,7 @@
             "scripts": []
           },
           "configurations": {
-            "production": {              
+            "production": {
               "outputHashing": "all"
             },
             "development": {
@@ -77,6 +87,16 @@
             }
           },
           "defaultConfiguration": "development"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/demo/**/*.ts",
+              "projects/demo/**/*.html"
+            ],
+            "eslintConfig": "projects/demo/eslint.config.js"
+          }
         }
       }
     }

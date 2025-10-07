@@ -2,6 +2,7 @@ import {Component, Input} from "@angular/core";
 
 @Component({
   standalone: false,
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'prettyjson',
   styles: [
     `pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
@@ -17,5 +18,6 @@ import {Component, Input} from "@angular/core";
   `,
 })
 export class PrettyJsonComponent {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Input() public obj: any;
 }
