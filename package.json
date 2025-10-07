@@ -46,5 +46,8 @@
     "typescript": "5.5.2",
     "typescript-eslint": "8.16.0",
     "wait-on": "9.0.1"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "*"
   }
 }
