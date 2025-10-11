@@ -5,18 +5,16 @@ import { PrettyJsonPipe } from './prettyjson.pipe';
 import { PrettyJsonComponent } from './prettyjson.component';
 
 @NgModule({
-    imports: [ CommonModule ],
-    declarations: [ 
+    imports: [CommonModule],
+    declarations: [
         PrettyJsonPipe,
         SafeJsonPipe,
         PrettyJsonComponent
-     ],
-    exports: [ 
+    ],
+    exports: [
         PrettyJsonPipe,
         SafeJsonPipe,
         PrettyJsonComponent
-     ]
+    ]
 })
-export class PrettyJsonModule {
-
-}
+export class PrettyJsonModule { }
