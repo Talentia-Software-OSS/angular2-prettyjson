@@ -13,7 +13,6 @@ import { PrettyJsonModule } from '@talentia/angular2-prettyjson';
     AppRoutingModule,
     PrettyJsonModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

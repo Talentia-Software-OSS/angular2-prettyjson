@@ -2,7 +2,7 @@
   "name": "@talentia/angular2-prettyjson",
   "title": "Angular Pretty JSON",
   "description": "An Angular module to pretty print JSON objects.",
-  "version": "3.0.7",
+  "version": "3.0.8",
   "license": "MIT",
   "licenseFilename": "LICENSE",
   "peerDependencies": {
