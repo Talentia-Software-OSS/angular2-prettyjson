@@ -1,6 +1,6 @@
 {
   "name": "angular2-prettyjson",
-  "version": "3.0.7",
+  "version": "3.0.8",
   "scripts": {
     "ng": "ng",
     "build": "npm-run-all -s clean:build build:prod",

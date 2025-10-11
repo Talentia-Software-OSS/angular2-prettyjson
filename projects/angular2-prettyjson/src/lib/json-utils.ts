@@ -3,14 +3,14 @@ export function serializer() {
   const stack: any[] = [];
   const keys: string[] = [];
 
-  const cycleReplacer = function(key: string, value: any) {
+  const cycleReplacer = function (key: string, value: any) {
     if (stack[0] === value) {
       return "[Circular ~]";
     }
     return "[Circular ~." + keys.slice(0, stack.indexOf(value)).join(".") + "]";
   };
 
-  return function(this: any, key: string, value: any) {
+  return function (this: any, key: string, value: any) {
     if (stack.length > 0) {
       const thisPos = stack.indexOf(this);
       ~thisPos ? stack.splice(thisPos + 1) : stack.push(this);
