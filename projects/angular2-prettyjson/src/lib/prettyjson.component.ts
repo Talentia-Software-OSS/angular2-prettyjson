@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, input } from "@angular/core";
 
 @Component({
   standalone: false,
@@ -13,9 +13,9 @@ import { Component, Input } from "@angular/core";
     :host ::ng-deep .key { color: red; }`
   ],
   template: `
-    <pre [innerHtml]="obj | prettyjson"></pre>
+    <pre [innerHtml]="obj() | prettyjson"></pre>
   `,
 })
 export class PrettyJsonComponent {
-  @Input() public obj: any;
+  public readonly obj = input<any>();
 }

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { PrettyJsonModule } from '@talentia/angular2-prettyjson';
 
 @Component({
-  standalone: false,
+  standalone: true,
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -13,7 +15,8 @@ import { Component } from '@angular/core';
     :host ::ng-deep .boolean { color: blue; }
     :host ::ng-deep .null { color: magenta; }
     :host ::ng-deep .key { color: red; }`
-  ]
+  ],
+  imports: [PrettyJsonModule, RouterOutlet],
 })
 export class AppComponent {
   title = 'Talentia Pretty JSON';
