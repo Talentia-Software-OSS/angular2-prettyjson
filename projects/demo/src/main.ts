@@ -1,5 +1,10 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './app/app.module';
+import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
+import { AppRoutingModule } from './app/app-routing.module';
+import { PrettyJsonModule } from '@talentia/angular2-prettyjson';
+import { AppComponent } from './app/app.component';
+import { importProvidersFrom } from '@angular/core';
 
-platformBrowserDynamic().bootstrapModule(AppModule)
+bootstrapApplication(AppComponent, {
+    providers: [importProvidersFrom(BrowserModule, AppRoutingModule, PrettyJsonModule)]
+})
 .catch(err => console.error(err));
