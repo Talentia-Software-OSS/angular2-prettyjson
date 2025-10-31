@@ -1,4 +1,4 @@
-import { Component, input } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
   standalone: false,
@@ -17,5 +17,5 @@ import { Component, input } from "@angular/core";
   `,
 })
 export class PrettyJsonComponent {
-  public readonly obj = input<any>();
+  @Input() public obj: any;
 }
