@@ -13,7 +13,7 @@ import { Component, Input } from "@angular/core";
     :host ::ng-deep .key { color: red; }`
   ],
   template: `
-    <pre [innerHtml]="obj() | prettyjson"></pre>
+    <pre [innerHtml]="obj | prettyjson"></pre>
   `,
 })
 export class PrettyJsonComponent {
