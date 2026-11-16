@@ -8,13 +8,7 @@ import { PrettyJsonModule } from '@talentia/angular2-prettyjson';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   styles: [
-    `pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
-    :host ::ng-deep span {white-space: normal;}
-    :host ::ng-deep .string { color: green; }
-    :host ::ng-deep .number { color: darkorange; }
-    :host ::ng-deep .boolean { color: blue; }
-    :host ::ng-deep .null { color: magenta; }
-    :host ::ng-deep .key { color: red; }`
+    `pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }`
   ],
   imports: [PrettyJsonModule, RouterOutlet],
 })
