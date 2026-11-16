@@ -5,3 +5,11 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/* Syntax highlight for the prettyjson pipe output bound via [innerHtml] */
+pre span { white-space: normal; }
+.string { color: green; }
+.number { color: darkorange; }
+.boolean { color: blue; }
+.null { color: magenta; }
+.key { color: red; }

@@ -104,9 +104,6 @@
       }
     }
   },
-  "cli": {
-    "analytics": false
-  },
   "schematics": {
     "@schematics/angular:component": {
       "type": "component"
@@ -132,5 +129,8 @@
     "@schematics/angular:resolver": {
       "typeSeparator": "."
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

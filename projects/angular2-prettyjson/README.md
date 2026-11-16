@@ -1,9 +1,21 @@
 # @talentia/angular2-prettyjson
 
 An Angular module to pretty print JSON objects.
-Contains a pipe similar to [JsonPipe](https://angular.io/docs/ts/latest/api/common/index/JsonPipe-class.html) but adds support for spacing and handling of circular structures.  
+Contains a pipe similar to [JsonPipe](https://angular.dev/api/common/JsonPipe) but adds support for spacing and handling of circular structures.  
 Also contains a component that outputs any object with syntax highlight.  
 **Warning**: just as the `JsonPipe`, this is an impure pipe and should be used only for debugging purposes.
+
+## Compatibility
+
+| @talentia/angular2-prettyjson | Angular |
+| ----------------------------- | ------- |
+| 3.0.13                        | 21.x    |
+| 3.0.12                        | 20.x    |
+| 3.0.9 - 3.0.11                | 19.x    |
+| 3.0.7 - 3.0.8                 | 18.x    |
+| 3.0.6                         | 17.x    |
+| 3.0.4 - 3.0.5                 | 16.x    |
+| 3.0.2 - 3.0.3                 | 15.x    |
 
 ## Install
 
@@ -35,7 +47,7 @@ export class AppModule { }
 
 ### Safe Pipe
 
-The `SafeJsonPipe` aims to override the `JsonPipe` and so uses the same name "json". It also accepts an optional argument `spaces=2` for the JSON stringify spacing.
+The `SafeJsonPipe` (pipe name `safejson`) works like the `JsonPipe` but also handles circular structures. It also accepts an optional argument `spaces=2` for the JSON stringify spacing.
 
 ```ts
 @Component({
@@ -74,7 +86,9 @@ The `PrettyJsonPipe` stringifies the object and then adds spans around propertie
   ...
 ```
 
- A good set of styles to use is
+ The spans are injected via `[innerHtml]`, so Angular's emulated view encapsulation does not apply to them:
+ component `styles` will not reach them (unless using the discouraged `::ng-deep`).
+ Put the styles in a global stylesheet (e.g. `styles.css`). A good set of styles to use is
 
  ```css
     pre span {white-space: normal;}
@@ -85,33 +99,39 @@ The `PrettyJsonPipe` stringifies the object and then adds spans around propertie
     .key { color: red; }
  ```
 
- If you wish to use the `styles` property of the parent component, please prefix each class selector with `:host /deep/`
- e.g.
+ To keep them scoped, wrap the `pre` in an element with your own class and prefix the selectors, e.g.
 
  ```ts
 @Component({
   ....
   template: `
-    <pre [innerHtml]="circularObj | prettyjson:3"></pre>
-  `,
-  styles: [
-    `pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
-    :host ::ng-deep span {white-space: normal;}
-    :host ::ng-deep .string { color: green; }
-    :host ::ng-deep .number { color: darkorange; }
-    :host ::ng-deep .boolean { color: blue; }
-    :host ::ng-deep .null { color: magenta; }
-    :host ::ng-deep .key { color: red; }`
-  ]
+    <div class="my-json">
+      <pre [innerHtml]="circularObj | prettyjson:3"></pre>
+    </div>
+  `
 })
   ...
 ```
+
+ ```css
+    /* styles.css */
+    .my-json span {white-space: normal;}
+    .my-json .string { color: green; }
+    .my-json .number { color: darkorange; }
+    .my-json .boolean { color: blue; }
+    .my-json .null { color: magenta; }
+    .my-json .key { color: red; }
+ ```
 
  See output under component below.
 
 ### Component
 
  Creates a `pre` element into which the Pretty Json pipe'd object is dumped as HTML. Takes care of styling.
+
+ The component host gets the `prettyjson` CSS class and its styles are scoped by it
+ (`.prettyjson .string`, `.prettyjson .key`, ...): to customize the colors, override those selectors
+ in a global stylesheet.
 
  Takes an input `[obj]` that can be data bound to any object.
 
@@ -132,9 +152,9 @@ The `PrettyJsonPipe` stringifies the object and then adds spans around propertie
 
 ## Further help
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.14.
+This project currently uses [Angular CLI](https://github.com/angular/angular-cli) version 21.2.25.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
 ## Reference
 
